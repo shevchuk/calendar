@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calendar demo</title>
+    <script src="qunit/qunit-1.10.0.js"></script>
+    <script src="calendar.js"></script>
+    <script>
+        function load() {
+
+            var events = [
+                { id: 1,        start: 30 ,     end: 150,       title: 'Event1' },
+                { id: 2,        start: 540,     end: 600,       title: 'Event2' },
+                { id: 3,        start: 560,     end: 620,       title: 'Event3' },
+                { id: 4,        start: 610,     end: 670,       title: 'Event4' }
+            ];
+
+            var events2 = [
+                { id: 1,        start: 0 ,     end: 720,       title: 'Event1' },
+                { id: 2,        start: 10 ,     end: 720,       title: 'Event1' },
+                { id: 2,        start: 10 ,     end: 720,       title: 'Event1' },
+            ];
+
+            var events3 = [
+                    { id: 1,        start: 30 ,     end: 150,       title: 'Event1' },
+                    { id: 2,        start: 540,     end: 600,       title: 'Event2' },
+                    { id: 3,        start: 560,     end: 620,       title: 'Event3' },
+                    { id: 4,        start: 610,     end: 670,       title: 'Event4' },
+                    { id: 5,        start: 610,     end: 670,       title: 'Event5' }
+            ];
+
+            var events4 = [
+                { id: 1,        start: 30 ,     end: 150,       title: 'Event1' },
+                { id: 2,        start: 540,     end: 600,       title: 'Event2' },
+                { id: 3,        start: 560,     end: 620,       title: 'Event3' },
+                { id: 4,        start: 610,     end: 670,       title: 'Event4' },
+                { id: 5,        start: 610,     end: 670,       title: 'Event5' },
+                { id: 6,        start: 30 ,     end: 150,       title: 'Event6' },
+                { id: 7,        start: 540,     end: 600,       title: 'Event7' },
+                { id: 8,        start: 360,     end: 420,       title: 'Event8' },
+                { id: 9,        start: 210,     end: 270,       title: 'Event9' },
+                { id: 10,       start: 110,     end: 570,       title: 'Event10' }
+            ];
+
+            var events5 = [
+                { id: 1,        start: 30 ,     end: 150,       title: 'Event1' },
+                { id: 2,        start: 140,     end: 160,       title: 'Event2' },
+                { id: 3,        start: 160,     end: 220,       title: 'Event3' },
+                { id: 4,        start: 510,     end: 570,       title: 'Event4' },
+                { id: 5,        start: 110,     end: 170,       title: 'Event5' },
+                { id: 6,        start: 530 ,    end: 550,       title: 'Event6' }
+            ];
+
+            var events6 = [
+                { id: 1,        start: 30 ,     end: 150,       title: 'Event1' },
+                { id: 2,        start: 140,     end: 160,       title: 'Event2' },
+                { id: 3,        start: 161,     end: 220,       title: 'Event3' },
+                { id: 4,        start: 510,     end: 570,       title: 'Event4' },
+                { id: 5,        start: 110,     end: 170,       title: 'Event5' },
+                { id: 6,        start: 530 ,    end: 550,       title: 'Event7' },
+                { id: 7,        start: 30 ,     end: 150,       title: 'Event8' },
+                { id: 8,        start: 140,     end: 160,       title: 'Event9' },
+                { id: 9,        start: 160,     end: 220,       title: 'Event10' },
+                { id: 10,       start: 510,     end: 570,       title: 'Event11' },
+                { id: 11,       start: 110,     end: 170,       title: 'Event12' },
+                { id: 12,       start: 530 ,    end: 550,       title: 'Event13' },
+                { id: 13,       start: 530 ,    end: 550,       title: 'Event14' },
+                { id: 14,       start: 30 ,     end: 150,       title: 'Event15' },
+                { id: 15,       start: 140,     end: 160,       title: 'Event16' },
+                { id: 16,       start: 161,     end: 220,       title: 'Event17' },
+                { id: 17,       start: 110,     end: 570,       title: 'Event18' },
+                { id: 18,       start: 110,     end: 170,       title: 'Event19' },
+                { id: 19,       start: 530 ,    end: 550,       title: 'Event20' }
+            ];
+
+            var events7 = [
+                { id: 1,        start: 30 ,     end: 150,       title: 'Event1' },
+                { id: 2,        start: 140,     end: 160,       title: 'Event2' },
+                { id: 3,        start: 361,     end: 420,       title: 'Event3' },
+                { id: 4,        start: 510,     end: 570,       title: 'Event4' },
+                { id: 5,        start: 110,     end: 170,       title: 'Event5' },
+                { id: 6,        start: 530 ,    end: 550,       title: 'Event7' },
+                { id: 7,        start: 30 ,     end: 150,       title: 'Event8' },
+                { id: 8,        start: 0,       end: 720,       title: 'Event9' },
+                { id: 9,        start: 160,     end: 220,       title: 'Event10' },
+                { id: 10,       start: 510,     end: 570,       title: 'Event11' },
+                { id: 11,       start: 110,     end: 170,       title: 'Event12' },
+                { id: 12,       start: 530 ,    end: 550,       title: 'Event13' },
+                { id: 13,       start: 530 ,    end: 550,       title: 'Event14' },
+                { id: 14,       start: 30 ,     end: 150,       title: 'Event15' },
+                { id: 15,       start: 140,     end: 160,       title: 'Event16' },
+                { id: 16,       start: 161,     end: 220,       title: 'Event17' },
+                { id: 17,       start: 110,     end: 570,       title: 'Event18' },
+                { id: 18,       start: 110,     end: 170,       title: 'Event19' },
+                { id: 19,       start: 530 ,    end: 550,       title: 'Event20' },
+                { id: 20,       start: 30 ,     end: 150,       title: 'Event21' },
+                { id: 21,       start: 140,     end: 160,       title: 'Event22' },
+                { id: 22,       start: 161,     end: 220,       title: 'Event23' },
+                { id: 22,       start: 510,     end: 570,       title: 'Event24' },
+                { id: 23,       start: 110,     end: 170,       title: 'Event25' },
+                { id: 24,       start: 530 ,    end: 550,       title: 'Event27' },
+                { id: 25,       start: 30 ,     end: 150,       title: 'Event28' },
+                { id: 26,       start: 23,      end: 160,       title: 'Event29' },
+                { id: 27,       start: 160,     end: 220,       title: 'Event30' },
+                { id: 28,       start: 65,      end: 211,       title: 'Event31' },
+                { id: 29,       start: 110,     end: 170,       title: 'Event32' },
+                { id: 30,       start: 530 ,    end: 550,       title: 'Event33' }
+            ];
+
+            var allSameTime = [
+                {id: 1, start: 0, end: 720, title: 'Event1'},
+                {id: 2, start: 0, end: 720, title: 'Event2'},
+                {id: 3, start: 0, end: 720, title: 'Event3'},
+                {id: 4, start: 0, end: 720, title: 'Event4'},
+                {id: 5, start: 0, end: 720, title: 'Event5'},
+                {id: 6, start: 0, end: 720, title: 'Event6'},
+                {id: 7, start: 0, end: 720, title: 'Event7'},
+                {id: 8, start: 0, end: 720, title: 'Event8'},
+                {id: 9, start: 0, end: 720, title: 'Event9'},
+                {id: 10, start: 0, end: 720, title: 'Event10'},
+                {id: 11, start: 0, end: 720, title: 'Event11'},
+                {id: 12, start: 0, end: 720, title: 'Event12'},
+                {id: 13, start: 0, end: 720, title: 'Event13'},
+                {id: 14, start: 0, end: 720, title: 'Event14'},
+                {id: 15, start: 0, end: 720, title: 'Event15'},
+                {id: 16, start: 0, end: 720, title: 'Event16'},
+                {id: 17, start: 0, end: 720, title: 'Event17'},
+                {id: 18, start: 0, end: 720, title: 'Event18'},
+                {id: 19, start: 0, end: 720, title: 'Event19'},
+                {id: 20, start: 0, end: 720, title: 'Event20'},
+                {id: 21, start: 0, end: 720, title: 'Event21'},
+                {id: 22, start: 0, end: 720, title: 'Event22'},
+                {id: 23, start: 0, end: 720, title: 'Event23'},
+                {id: 24, start: 0, end: 720, title: 'Event24'},
+                {id: 25, start: 0, end: 720, title: 'Event25'},
+                {id: 26, start: 0, end: 720, title: 'Event26'},
+                {id: 27, start: 0, end: 720, title: 'Event27'},
+                {id: 28, start: 0, end: 720, title: 'Event28'},
+                {id: 29, start: 0, end: 720, title: 'Event29'},
+                {id: 30, start: 0, end: 720, title: 'Event30'}
+
+            ];
+
+            var events5 = [
+                { id: 1,        start: 20,     end: 720,       title: 'Event1' },
+                { id: 2,        start: 100,     end: 500,       title: 'Event2' },
+                { id: 3,        start: 0,     end: 15,       title: 'Event3' },
+                { id: 4,        start: 0,     end: 720,       title: 'Event4' },
+                { id: 5,        start: 50,     end: 80,       title: 'Event5' },
+                { id: 6,        start: 680 ,    end: 720,       title: 'Event6' }
+            ];
+
+            var events6 = [
+                { id: 1,        start: 25,     end: 40,       title: 'Event1' },
+                { id: 2,        start: 40,     end: 80,       title: 'Event2' },
+                { id: 3,        start: 40,     end: 115,       title: 'Event3' },
+                { id: 4,        start: 115,     end: 180,       title: 'Event4' },
+                { id: 5,        start: 190,     end: 210,       title: 'Event5' },
+                { id: 6,        start: 230 ,    end: 380,       title: 'Event6' }
+            ];
+            var calendar = new Calendar({events: allSameTime});
+            calendar.appendTo(document.getElementById('calendar'));
+        }
+    </script>
+</head>
+<body onload="load()">
+ <section id="calendar" />
+</body>
+</html>
